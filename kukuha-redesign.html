@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KUKUHA.SHOP — Мотосумки и аксессуары</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Unbounded:wght@400;700;900&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0e0e0e;
+    --charcoal: #1a1a1a;
+    --graphite: #2c2c2c;
+    --steel: #4a4a4a;
+    --silver: #9a9a9a;
+    --fog: #e8e5df;
+    --cream: #f5f2ec;
+    --white: #ffffff;
+    --accent: #e85d04;
+    --accent-deep: #c44d00;
+    --accent-light: #ff7a2a;
+    --gold: #c8a951;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Golos Text', sans-serif;
+    background: var(--cream);
+    color: var(--black);
+    overflow-x: hidden;
+  }
+
+  /* ── TOPBAR ── */
+  .topbar {
+    background: var(--black);
+    color: var(--silver);
+    font-size: 12px;
+    padding: 8px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    letter-spacing: 0.05em;
+  }
+  .topbar a { color: var(--silver); text-decoration: none; }
+  .topbar a:hover { color: var(--accent-light); }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--charcoal);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .header-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    height: 72px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .logo-icon {
+    width: 42px;
+    height: 42px;
+    background: var(--accent);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    color: white;
+    letter-spacing: -1px;
+  }
+
+  .logo-text {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 16px;
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.1;
+  }
+  .logo-text span {
+    display: block;
+    font-size: 9px;
+    font-weight: 400;
+    color: var(--silver);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex: 1;
+  }
+
+  nav a {
+    color: var(--fog);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  nav a:hover { background: var(--graphite); color: var(--accent-light); }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+  }
+
+  .search-bar {
+    display: flex;
+    align-items: center;
+    background: var(--graphite);
+    border-radius: 8px;
+    padding: 8px 14px;
+    gap: 8px;
+    border: 1px solid var(--steel);
+    transition: border-color 0.2s;
+  }
+  .search-bar:focus-within { border-color: var(--accent); }
+  .search-bar input {
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--white);
+    font-family: 'Golos Text', sans-serif;
+    font-size: 13px;
+    width: 180px;
+  }
+  .search-bar input::placeholder { color: var(--silver); }
+  .search-icon { color: var(--silver); font-size: 14px; }
+
+  .icon-btn {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--fog);
+    text-decoration: none;
+    font-size: 10px;
+    gap: 3px;
+    padding: 6px 8px;
+    border-radius: 6px;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: none;
+    background: none;
+  }
+  .icon-btn svg { width: 22px; height: 22px; }
+  .icon-btn:hover { color: var(--accent-light); background: var(--graphite); }
+  .icon-btn .badge {
+    position: absolute;
+    top: 2px; right: 2px;
+    width: 16px; height: 16px;
+    background: var(--accent);
+    border-radius: 50%;
+    font-size: 9px;
+    font-weight: 700;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .catalog-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-family: 'Golos Text', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .catalog-btn:hover { background: var(--accent-deep); }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 580px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+    background: var(--black);
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 60px 80px 80px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(232,93,4,0.15);
+    border: 1px solid rgba(232,93,4,0.3);
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent-light);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    width: fit-content;
+    margin-bottom: 24px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(60px, 7vw, 100px);
+    line-height: 0.9;
+    color: var(--white);
+    margin-bottom: 24px;
+    letter-spacing: 0.01em;
+  }
+
+  .hero h1 .accent { color: var(--accent); }
+
+  .hero p {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--silver);
+    margin-bottom: 40px;
+    max-width: 420px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    padding: 16px 32px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.25s;
+    border: 2px solid var(--accent);
+  }
+  .btn-primary:hover { background: var(--accent-deep); border-color: var(--accent-deep); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(232,93,4,0.4); }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    color: var(--fog);
+    text-decoration: none;
+    padding: 16px 32px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    border: 2px solid var(--graphite);
+    transition: all 0.25s;
+  }
+  .btn-secondary:hover { border-color: var(--silver); color: var(--white); }
+
+  .hero-visual {
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+  }
+  .hero-visual::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, var(--black) 0%, transparent 40%);
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid var(--graphite);
+  }
+
+  .hero-stat strong {
+    display: block;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--white);
+  }
+  .hero-stat span {
+    font-size: 12px;
+    color: var(--silver);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ── TRUST BAR ── */
+  .trust-bar {
+    background: var(--graphite);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .trust-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--fog);
+    font-size: 13px;
+  }
+
+  .trust-item svg { color: var(--accent); flex-shrink: 0; }
+
+  .trust-item strong { display: block; font-weight: 600; color: var(--white); font-size: 13px; }
+  .trust-item span { color: var(--silver); font-size: 12px; }
+
+  /* ── SECTIONS ── */
+  .section {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 80px 40px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 48px;
+  }
+
+  .section-title {
+    font-family: 'Unbounded', sans-serif;
+    font-size: clamp(22px, 3vw, 36px);
+    font-weight: 700;
+    color: var(--black);
+    line-height: 1.2;
+  }
+  .section-title .label {
+    display: block;
+    font-family: 'Golos Text', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .see-all {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: gap 0.2s;
+    white-space: nowrap;
+  }
+  .see-all:hover { gap: 10px; }
+
+  /* ── CATEGORIES GRID ── */
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .cat-card {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    text-decoration: none;
+    background: var(--graphite);
+    display: block;
+    transition: transform 0.3s;
+  }
+  .cat-card:hover { transform: translateY(-4px); }
+  .cat-card:hover img { transform: scale(1.05); }
+
+  .cat-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+    opacity: 0.6;
+  }
+
+  .cat-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 24px;
+  }
+
+  .cat-card-tag {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 4px;
+    width: fit-content;
+    margin-bottom: 10px;
+  }
+
+  .cat-card h3 {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+
+  .cat-card-arrow {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--silver);
+    font-size: 12px;
+    margin-top: 8px;
+    transition: color 0.2s, gap 0.2s;
+  }
+  .cat-card:hover .cat-card-arrow { color: var(--accent-light); gap: 10px; }
+
+  .cat-card.featured {
+    grid-column: span 2;
+    aspect-ratio: unset;
+    min-height: 300px;
+  }
+
+  /* ── PRODUCTS GRID ── */
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .product-card {
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.07);
+    transition: all 0.25s;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+  }
+  .product-card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0,0,0,0.12); }
+
+  .product-img-wrap {
+    position: relative;
+    aspect-ratio: 1;
+    background: var(--fog);
+    overflow: hidden;
+  }
+
+  .product-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 20px;
+    transition: transform 0.3s;
+  }
+  .product-card:hover .product-img-wrap img { transform: scale(1.06); }
+
+  .product-badges {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .badge-new {
+    background: var(--accent);
+    color: white;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 4px;
+  }
+  .badge-hit {
+    background: var(--gold);
+    color: var(--black);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 4px;
+  }
+
+  .product-actions {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    opacity: 0;
+    transform: translateX(8px);
+    transition: all 0.2s;
+  }
+  .product-card:hover .product-actions { opacity: 1; transform: translateX(0); }
+
+  .action-btn {
+    width: 34px; height: 34px;
+    background: white;
+    border: none;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.2s;
+    color: var(--steel);
+  }
+  .action-btn:hover { background: var(--accent); color: white; }
+
+  .product-info {
+    padding: 16px 18px 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .product-brand {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--silver);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 6px;
+  }
+
+  .product-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--black);
+    line-height: 1.4;
+    margin-bottom: 12px;
+    flex: 1;
+  }
+
+  .product-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    gap: 8px;
+  }
+
+  .product-price {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--black);
+  }
+
+  .product-stock {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    color: #22c55e;
+    font-weight: 500;
+  }
+  .product-stock::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: #22c55e;
+    border-radius: 50%;
+  }
+
+  .add-to-cart {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--black);
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-family: 'Golos Text', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .add-to-cart:hover { background: var(--accent); }
+
+  /* ── BANNER STRIP ── */
+  .banner-strip {
+    background: var(--black);
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .banner-strip::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 50%, rgba(232,93,4,0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 50%, rgba(232,93,4,0.08) 0%, transparent 40%);
+  }
+
+  .banner-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 60px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .banner-text .eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 12px;
+  }
+
+  .banner-text h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 6vw, 80px);
+    color: var(--white);
+    line-height: 0.9;
+    margin-bottom: 20px;
+  }
+
+  .banner-text p {
+    font-size: 16px;
+    color: var(--silver);
+    max-width: 500px;
+    line-height: 1.6;
+  }
+
+  .banner-ctas {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  /* ── BRANDS ── */
+  .brands-section { background: var(--fog); }
+  .brands-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 16px;
+  }
+
+  .brand-chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--white);
+    border: 1.5px solid rgba(0,0,0,0.08);
+    border-radius: 100px;
+    padding: 10px 22px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--steel);
+    transition: all 0.2s;
+  }
+  .brand-chip:hover { border-color: var(--accent); color: var(--accent); background: rgba(232,93,4,0.04); }
+
+  /* ── REVIEWS ── */
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .review-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 28px;
+    border: 1px solid rgba(0,0,0,0.07);
+    position: relative;
+  }
+
+  .review-quote {
+    font-size: 48px;
+    color: var(--accent);
+    font-family: Georgia, serif;
+    line-height: 0.8;
+    margin-bottom: 12px;
+    opacity: 0.3;
+  }
+
+  .review-text {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--steel);
+    margin-bottom: 20px;
+  }
+
+  .review-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .review-avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--graphite);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .review-name { font-weight: 600; font-size: 14px; }
+  .review-meta { font-size: 12px; color: var(--silver); }
+
+  .stars { color: #f59e0b; font-size: 13px; margin-bottom: 4px; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--black);
+    color: var(--silver);
+    padding: 60px 40px 40px;
+  }
+
+  .footer-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 280px 1fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--graphite);
+    margin-bottom: 32px;
+  }
+
+  .footer-brand .logo { margin-bottom: 16px; }
+  .footer-brand p { font-size: 13px; line-height: 1.6; color: var(--silver); }
+
+  .footer-col h4 {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+  }
+
+  .footer-col a {
+    display: block;
+    color: var(--silver);
+    text-decoration: none;
+    font-size: 13px;
+    margin-bottom: 8px;
+    transition: color 0.2s;
+  }
+  .footer-col a:hover { color: var(--accent-light); }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+  }
+
+  .footer-phone {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--white);
+    text-decoration: none;
+    margin-bottom: 4px;
+    display: block;
+  }
+
+  /* ── UTILITY ── */
+  .divider { height: 1px; background: rgba(0,0,0,0.08); margin: 0 40px; }
+
+  @media (max-width: 1100px) {
+    .products-grid { grid-template-columns: repeat(3, 1fr); }
+    .categories-grid { grid-template-columns: repeat(2, 1fr); }
+    .cat-card.featured { grid-column: span 2; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div style="display:flex;gap:24px">
+    <span>📍 ПВЗ: ул. Мнёвники 7к2, Москва</span>
+    <span>Пн–Пт: 11:00–19:00</span>
+  </div>
+  <div style="display:flex;gap:24px">
+    <a href="#">Отзывы</a>
+    <a href="#">Доставка</a>
+    <a href="#">Мотосервисы</a>
+    <a href="#">Вопрос–Ответ</a>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">KK</div>
+      <div class="logo-text">
+        KUKUHA
+        <span>Мотосумки и аксессуары</span>
+      </div>
+    </a>
+
+    <nav>
+      <a href="#">Каталог</a>
+      <a href="#">Бренды</a>
+      <a href="#">Коллекции</a>
+      <a href="#">Новости</a>
+      <a href="#">Акции</a>
+      <a href="#">Контакты</a>
+    </nav>
+
+    <div class="header-actions">
+      <div class="search-bar">
+        <svg class="search-icon" viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clip-rule="evenodd"/></svg>
+        <input type="text" placeholder="Поиск товаров...">
+      </div>
+
+      <button class="icon-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <span>Избранное</span>
+      </button>
+
+      <button class="icon-btn">
+        <div class="badge">3</div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
+        <span>Корзина</span>
+      </button>
+
+      <a href="tel:+79017970077" style="color:var(--fog);text-decoration:none;font-size:14px;font-weight:600;white-space:nowrap;">
+        +7 (901) 797-00-77
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">Новый сезон 2025</div>
+    <h1>ЕДЕШЬ<br>ДАЛЕ<span class="accent">КО?</span><br>МЫ ГОТОВЫ.</h1>
+    <p>Мотосумки, кофры, навигация и электрооборудование для дальних путешествий. Официальный дилер RhinoWalk, LOBOO и RESO Pilot в России.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn-primary">
+        Смотреть каталог
+        <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/></svg>
+      </a>
+      <a href="#" class="btn-secondary">
+        Хиты продаж
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <strong>500+</strong>
+        <span>Товаров в каталоге</span>
+      </div>
+      <div class="hero-stat">
+        <strong>3 года</strong>
+        <span>На рынке</span>
+      </div>
+      <div class="hero-stat">
+        <strong>★ 4.9</strong>
+        <span>Средний рейтинг</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <!-- Placeholder для hero-изображения мотоцикла с сумками -->
+    <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a1a1a 0%,#2c2c2c 50%,#1a1a1a 100%);display:flex;align-items:center;justify-content:center;">
+      <div style="text-align:center;color:rgba(255,255,255,0.15)">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:120px;line-height:1;">RIDE</div>
+        <div style="font-size:14px;letter-spacing:0.3em;text-transform:uppercase;">Hero image: мотоцикл с кофрами на природе</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      <div>
+        <strong>Быстрая доставка</strong>
+        <span>По всей России</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+      <div>
+        <strong>Официальный дилер</strong>
+        <span>RhinoWalk, LOBOO, RESO</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+      <div>
+        <strong>ПВЗ в Москве</strong>
+        <span>ул. Мнёвники 7к2</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+      <div>
+        <strong>Поддержка</strong>
+        <span>Пн–Пт 11:00–19:00</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+      <div>
+        <strong>Гарантия возврата</strong>
+        <span>14 дней на обмен</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CATEGORIES -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-title">
+      <span class="label">Разделы каталога</span>
+      Выберите категорию
+    </div>
+    <a href="#" class="see-all">Все категории →</a>
+  </div>
+
+  <div class="categories-grid">
+    <a href="#" class="cat-card featured">
+      <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a1a1a,#3a2010);display:flex;align-items:center;justify-content:center;">
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:80px;color:rgba(255,255,255,0.08)">КОФРЫ</span>
+      </div>
+      <div class="cat-card-overlay">
+        <span class="cat-card-tag">Популярное</span>
+        <h3>Мягкие и жёсткие кофры</h3>
+        <div class="cat-card-arrow">Смотреть товары →</div>
+      </div>
+    </a>
+
+    <a href="#" class="cat-card">
+      <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a2030,#0e0e0e)"></div>
+      <div class="cat-card-overlay">
+        <h3>Сумки и рюкзаки</h3>
+        <div class="cat-card-arrow">Смотреть →</div>
+      </div>
+    </a>
+
+    <a href="#" class="cat-card">
+      <div style="width:100%;height:100%;background:linear-gradient(135deg,#201a10,#0e0e0e)"></div>
+      <div class="cat-card-overlay">
+        <h3>Электрооборудование</h3>
+        <div class="cat-card-arrow">Смотреть →</div>
+      </div>
+    </a>
+
+    <a href="#" class="cat-card">
+      <div style="width:100%;height:100%;background:linear-gradient(135deg,#10201a,#0e0e0e)"></div>
+      <div class="cat-card-overlay">
+        <h3>Мотогарнитуры</h3>
+        <div class="cat-card-arrow">Смотреть →</div>
+      </div>
+    </a>
+
+    <a href="#" class="cat-card">
+      <div style="width:100%;height:100%;background:linear-gradient(135deg,#201018,#0e0e0e)"></div>
+      <div class="cat-card-overlay">
+        <h3>Защита и тюнинг</h3>
+        <div class="cat-card-arrow">Смотреть →</div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- POPULAR PRODUCTS -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-title">
+      <span class="label">Хиты продаж</span>
+      Самые популярные товары
+    </div>
+    <a href="#" class="see-all">Все товары →</a>
+  </div>
+
+  <div class="products-grid">
+    <!-- Product 1 -->
+    <a href="#" class="product-card">
+      <div class="product-img-wrap">
+        <img src="https://kukuha.shop/upload/resize_cache/iblock/4e8/220_200_1/elrju56wnk172g1ftmjbbnhualhfbeli.jpg" alt="Кофр RhinoWalk">
+        <div class="product-badges">
+          <span class="badge-new">Новинка</span>
+          <span class="badge-hit">Хит</span>
+        </div>
+        <div class="product-actions">
+          <button class="action-btn" title="В избранное">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+          <button class="action-btn" title="Быстрый просмотр">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="product-info">
+        <div class="product-brand">RhinoWalk</div>
+        <div class="product-name">Мягкий быстросъёмный боковой кофр 35L серии Mechanic</div>
+        <div style="margin-top:auto">
+          <div class="product-stock">В наличии</div>
+          <div class="product-bottom" style="margin-top:8px">
+            <div class="product-price">21 500 ₽</div>
+            <button class="add-to-cart" onclick="event.preventDefault()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+              В корзину
+            </button>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <!-- Product 2 -->
+    <a href="#" class="product-card">
+      <div class="product-img-wrap">
+        <img src="https://kukuha.shop/upload/resize_cache/iblock/1e8/220_200_1/kpd6dtrirp185v8x6fdj24mthnvusbx3.jpg" alt="Мотогарнитура RESO">
+        <div class="product-badges">
+          <span class="badge-new">Новинка</span>
+        </div>
+        <div class="product-actions">
+          <button class="action-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <button class="action-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button>
+        </div>
+      </div>
+      <div class="product-info">
+        <div class="product-brand">RESO Pilot</div>
+        <div class="product-name">Мотогарнитура Reso Pilot Pro KR700</div>
+        <div style="margin-top:auto">
+          <div class="product-stock">В наличии</div>
+          <div class="product-bottom" style="margin-top:8px">
+            <div class="product-price">22 500 ₽</div>
+            <button class="add-to-cart" onclick="event.preventDefault()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+              В корзину
+            </button>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <!-- Product 3 -->
+    <a href="#" class="product-card">
+      <div class="product-img-wrap">
+        <img src="https://kukuha.shop/upload/resize_cache/iblock/95f/220_200_1/zu5752ah96fd59epcg79xw0xb0fla3na.jpg" alt="Надувные сумки LOBOO">
+        <div class="product-badges">
+          <span class="badge-new">Новинка</span>
+        </div>
+        <div class="product-actions">
+          <button class="action-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <button class="action-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button>
+        </div>
+      </div>
+      <div class="product-info">
+        <div class="product-brand">LOBOO</div>
+        <div class="product-name">Комплект надувных боковых сумок 2×6L серии WANDERER</div>
+        <div style="margin-top:auto">
+          <div class="product-stock">В наличии</div>
+          <div class="product-bottom" style="margin-top:8px">
+            <div class="product-price">23 000 ₽</div>
+            <button class="add-to-cart" onclick="event.preventDefault()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+              В корзину
+            </button>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <!-- Product 4 -->
+    <a href="#" class="product-card">
+      <div class="product-img-wrap">
+        <img src="https://kukuha.shop/upload/resize_cache/iblock/281/220_200_1/2hqx0tz1wizxzhavs3dlh8wgl0sttmb2.jpg" alt="Сумка RhinoWalk">
+        <div class="product-actions">
+          <button class="action-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <button class="action-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button>
+        </div>
+      </div>
+      <div class="product-info">
+        <div class="product-brand">RhinoWalk</div>
+        <div class="product-name">Водонепроницаемая сумка на боковые передние дуги 6L</div>
+        <div style="margin-top:auto">
+          <div class="product-stock">В наличии</div>
+          <div class="product-bottom" style="margin-top:8px">
+            <div class="product-price">3 240 ₽</div>
+            <button class="add-to-cart" onclick="event.preventDefault()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+              В корзину
+            </button>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- BANNER -->
+<section class="banner-strip">
+  <div class="banner-inner">
+    <div class="banner-text">
+      <div class="eyebrow">🏍 Официальный дилер</div>
+      <h2>RHINOWALK<br>В РОССИИ</h2>
+      <p>Мы первые и единственные официальные дилеры RhinoWalk в России. Прямые поставки, гарантия производителя, поддержка на русском языке.</p>
+    </div>
+    <div class="banner-ctas">
+      <a href="#" class="btn-primary">Перейти в каталог RhinoWalk</a>
+      <a href="#" class="btn-secondary">Узнать подробнее</a>
+    </div>
+  </div>
+</section>
+
+<!-- BRANDS -->
+<section class="brands-section">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-title">
+        <span class="label">Производители</span>
+        Бренды в каталоге
+      </div>
+      <a href="#" class="see-all">Все бренды →</a>
+    </div>
+    <div class="brands-row">
+      <a href="#" class="brand-chip">🏍 RhinoWalk</a>
+      <a href="#" class="brand-chip">📦 LOBOO</a>
+      <a href="#" class="brand-chip">🎧 RESO Pilot</a>
+      <a href="#" class="brand-chip">⭐ XTXZ Star Walker</a>
+      <a href="#" class="brand-chip">💡 FEREI</a>
+      <a href="#" class="brand-chip">🔧 WeePro</a>
+      <a href="#" class="brand-chip">🪵 WOOD TRICK</a>
+      <a href="#" class="brand-chip">🛡 ABSOLUTE RIDER</a>
+      <a href="#" class="brand-chip">⚙️ COKIMA</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- REVIEWS -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-title">
+      <span class="label">Отзывы покупателей</span>
+      Что говорят байкеры
+    </div>
+    <a href="#" class="see-all">Все отзывы →</a>
+  </div>
+
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-quote">"</div>
+      <div class="stars">★★★★★</div>
+      <p class="review-text">Заказывал кофры RhinoWalk для поездки на Байкал. Качество выше всяких похвал — держались весь маршрут, водонепроницаемые, удобные крепления. Ребята быстро ответили на все вопросы до покупки. Однозначно рекомендую!</p>
+      <div class="review-author">
+        <div class="review-avatar">АМ</div>
+        <div>
+          <div class="review-name">Алексей М.</div>
+          <div class="review-meta">BMW R1250GS · Москва</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-quote">"</div>
+      <div class="stars">★★★★★</div>
+      <p class="review-text">Взял мотогарнитуру RESO Pilot Pro — это что-то с чем-то! Связь на скорости 150 отличная, ветер не мешает, Bluetooth с телефоном держится. Магазин — огонь, доставка была быстрее ожидаемого срока.</p>
+      <div class="review-author">
+        <div class="review-avatar">ДК</div>
+        <div>
+          <div class="review-name">Дмитрий К.</div>
+          <div class="review-meta">Honda Africa Twin · СПб</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-quote">"</div>
+      <div class="stars">★★★★★</div>
+      <p class="review-text">Сумки LOBOO WANDERER — лучшее вложение этого сезона. Лёгкие, объёмные, надёжно крепятся. В kukuha.shop помогли подобрать под мой мотоцикл, не пожалел ни разу. Вернусь за дополнительным светом.</p>
+      <div class="review-author">
+        <div class="review-avatar">ЕВ</div>
+        <div>
+          <div class="review-name">Евгений В.</div>
+          <div class="review-meta">KTM 890 Adventure · Екб</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="logo" style="margin-bottom:16px">
+          <div class="logo-icon">KK</div>
+          <div class="logo-text">
+            KUKUHA
+            <span>Мотосумки и аксессуары</span>
+          </div>
+        </a>
+        <p>Магазин мотосумок и аксессуаров для путешествий. Официальный дилер RhinoWalk, LOBOO и RESO Pilot в России.</p>
+        <a href="tel:+79017970077" class="footer-phone" style="margin-top:20px">+7 (901) 797-00-77</a>
+        <div style="font-size:13px;margin-top:4px"><a href="mailto:ride@kukuha.shop" style="color:var(--accent-light);text-decoration:none">ride@kukuha.shop</a></div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Каталог</h4>
+        <a href="#">Багажные системы</a>
+        <a href="#">Сумки и рюкзаки</a>
+        <a href="#">Мотогарнитуры</a>
+        <a href="#">Электрооборудование</a>
+        <a href="#">Защита и тюнинг</a>
+        <a href="#">Аксессуары</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Помощь</h4>
+        <a href="#">Доставка и оплата</a>
+        <a href="#">Гарантия</a>
+        <a href="#">Как купить</a>
+        <a href="#">Вопрос–Ответ</a>
+        <a href="#">Мотосервисы</a>
+        <a href="#">Сотрудничество</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>О магазине</h4>
+        <a href="#">О нас</a>
+        <a href="#">Бренды</a>
+        <a href="#">Новости</a>
+        <a href="#">Акции</a>
+        <a href="#">Отзывы</a>
+        <a href="#">Контакты</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2025 KUKUHA.SHOP — г. Москва, ул. Мнёвники, д. 7к2</div>
+      <div style="display:flex;gap:20px">
+        <a href="#" style="color:var(--silver);text-decoration:none;font-size:12px">Политика конфиденциальности</a>
+        <a href="#" style="color:var(--silver);text-decoration:none;font-size:12px">Реквизиты</a>
+        <a href="#" style="color:var(--silver);text-decoration:none;font-size:12px">Согласие на обработку данных</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
